@@ -45,24 +45,21 @@ sms = SMSClient()  # Initierar SMS-klienten
 def index():
     return '''
     <html>
-        <head>
-            <title>SMS-tjänst</title>
-        </head>
+        <head><title>SMS-tjänst</title></head>
         <body style="font-family: sans-serif;">
-            <h1>✅ SMS-tjänsten är igång!</h1>
-            <p>För att skicka ett SMS, använd endpointen <code>/send</code> med följande URL-parametrar:</p>
+            <h1>✅ SMS-tjänsten är aktiv</h1>
+            <p>För att skicka SMS, använd <code>/send</code>-endpointen med parametrar:</p>
             <ul>
-                <li><b>telnr</b> – telefonnummer (ex: 46701234567)</li>
-                <li><b>message</b> – meddelandetext</li>
-                <li><b>action</b> – måste vara <code>sms</code></li>
-                <li><b>subject</b> – (valfri) ämnesrad</li>
-                <li><b>id</b> – (valfri) identifierare</li>
+                <li><b>telnr</b>: Telefon (ex. 46701234567)</li>
+                <li><b>message</b>: Meddelande</li>
+                <li><b>action</b>: <code>sms</code></li>
+                <li><b>subject</b> (valfri), <b>id</b> (valfri)</li>
             </ul>
             <p>Exempel:<br>
-            <code>/send?telnr=46701234567&message=Testmeddelande&action=sms</code></p>
+            <code>/send?telnr=46701234567&message=Test&action=sms</code></p>
         </body>
     </html>
-
+    '''
 # Ser till att loggar sparas i en undermapp "logs" nära filens plats
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 os.makedirs(log_dir, exist_ok=True)
