@@ -47,13 +47,14 @@ def index():
     <html>
         <head><title>SMS-tjänst</title></head>
         <body style="font-family: sans-serif;">
-            <h1>✅ SMS-tjänsten är aktiv</h1>
-            <p>För att skicka SMS, använd <code>/send</code>-endpointen med parametrar:</p>
+            <h1>✅ SMS-tjänsten är igång!</h1>
+            <p>För att skicka ett SMS, använd endpointen <code>/send</code> med parametrar:</p>
             <ul>
-                <li><b>telnr</b>: Telefon (ex. 46701234567)</li>
-                <li><b>message</b>: Meddelande</li>
-                <li><b>action</b>: <code>sms</code></li>
-                <li><b>subject</b> (valfri), <b>id</b> (valfri)</li>
+                <li><b>telnr</b>: Telefonnummer i internationellt format</li>
+                <li><b>message</b>: Meddelandetext</li>
+                <li><b>action</b>: Måste vara <code>sms</code></li>
+                <li><b>subject</b>: (valfri)</li>
+                <li><b>id</b>: (valfri avsändare)</li>
             </ul>
             <p>Exempel:<br>
             <code>/send?telnr=46701234567&message=Test&action=sms</code></p>
