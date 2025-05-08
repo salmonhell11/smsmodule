@@ -41,6 +41,28 @@ from sms_client import SMSClient # Importerar SMSClient för att skicka SMS
 app = Flask(__name__)  # Skapar en instans av webbapplikationen
 sms = SMSClient()  # Initierar SMS-klienten
 
+@app.route('/')
+def index():
+    return '''
+    <html>
+        <head>
+            <title>SMS-tjänst</title>
+        </head>
+        <body style="font-family: sans-serif;">
+            <h1>✅ SMS-tjänsten är igång!</h1>
+            <p>För att skicka ett SMS, använd endpointen <code>/send</code> med följande URL-parametrar:</p>
+            <ul>
+                <li><b>telnr</b> – telefonnummer (ex: 46701234567)</li>
+                <li><b>message</b> – meddelandetext</li>
+                <li><b>action</b> – måste vara <code>sms</code></li>
+                <li><b>subject</b> – (valfri) ämnesrad</li>
+                <li><b>id</b> – (valfri) identifierare</li>
+            </ul>
+            <p>Exempel:<br>
+            <code>/send?telnr=46701234567&message=Testmeddelande&action=sms</code></p>
+        </body>
+    </html>
+
 # Ser till att loggar sparas i en undermapp "logs" nära filens plats
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 os.makedirs(log_dir, exist_ok=True)
